@@ -1,7 +1,0 @@
-{
-  "name": "sellCars",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
