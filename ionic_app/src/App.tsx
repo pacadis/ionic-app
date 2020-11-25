@@ -23,20 +23,24 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import {CarEdit, CarList} from "./todo";
 import {CarProvider} from "./todo/CarProvider";
+import {AuthProvider, Login, PrivateRoute} from "./auth";
 
 const App: React.FC = () => (
-  <IonApp>
-      <CarProvider>
+    <IonApp>
         <IonReactRouter>
-          <IonRouterOutlet>
-            <Route path="/cars" component={CarList} exact={true} />
-              <Route path="/car" component={CarEdit} exact={true} />
-              <Route path="/car/:id" component={CarEdit} exact={true} />
-            <Route exact path="/" render={() => <Redirect to="/cars" />} />
-          </IonRouterOutlet>
+            <IonRouterOutlet>
+                <AuthProvider>
+                    <Route path="/login" component={Login} exact={true}/>
+                    <CarProvider>
+                        <PrivateRoute path="/cars" component={CarList} exact={true}/>
+                        <PrivateRoute path="/car" component={CarEdit} exact={true}/>
+                        <PrivateRoute path="/car/:id" component={CarEdit} exact={true}/>
+                    </CarProvider>
+                    <Route exact path="/" render={() => <Redirect to="/cars"/>}/>
+                </AuthProvider>
+            </IonRouterOutlet>
         </IonReactRouter>
-      </CarProvider>
-  </IonApp>
+    </IonApp>
 );
 
 export default App;

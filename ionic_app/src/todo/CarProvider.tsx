@@ -1,8 +1,10 @@
-import React, {useCallback, useEffect, useReducer} from 'react';
+import React, {useCallback, useContext, useEffect, useReducer} from 'react';
 import { getLogger } from "../core";
 import { CarProps } from "./CarProps";
 import {createCar, getCars, newWebSocket, updateCar} from "./CarApi";
 import PropTypes from 'prop-types';
+import {AuthContext} from "../auth";
+import {Storage} from "@capacitor/core";
 
 const log = getLogger('carProvider');
 
@@ -11,7 +13,7 @@ type SaveCarFn = (car: CarProps) => Promise<any>;
 export interface CarsState {
     cars?: CarProps[];
     fetching: boolean,
-    fetchingError?: Error,
+    fetchingError?: Error | null,
     saving: boolean,
     savingError?: Error | null,
     saveCar?: SaveCarFn,
@@ -38,7 +40,7 @@ const reducer: (state: CarsState, action: ActionProps) => CarsState =
     (state, { type, payload }) => {
         switch(type) {
             case FETCH_CARS_STARTED:
-                return { ...state, fetching: true };
+                return { ...state, fetching: true, fetchingError: null };
             case FETCH_CARS_SUCCEEDED:
                 return { ...state, cars: payload.cars, fetching: false };
             case FETCH_CARS_FAILED:
@@ -48,7 +50,7 @@ const reducer: (state: CarsState, action: ActionProps) => CarsState =
             case SAVE_CARS_SUCCEEDED:
                 const cars = [...(state.cars || [])];
                 const car = payload.car;
-                const index = cars.findIndex(it => it.id === car.id);
+                const index = cars.findIndex(it => it._id === car._id);
                 if (index === -1) {
                     cars.splice(0, 0, car);
                 } else {
@@ -69,11 +71,12 @@ interface CarProviderProps {
 }
 
 export const CarProvider: React.FC<CarProviderProps> = ({ children }) => {
+    const { token } = useContext(AuthContext);
     const [state, dispatch] = useReducer(reducer, initialState);
     const { cars, fetching, fetchingError, saving, savingError } = state;
-    useEffect(getCarsEffect, []);
-    useEffect(wsEffect, []);
-    const saveCar = useCallback<SaveCarFn>(saveCarCallback, []);
+    useEffect(getCarsEffect, [token]);
+    useEffect(wsEffect, [token]);
+    const saveCar = useCallback<SaveCarFn>(saveCarCallback, [token]);
     const value = { cars, fetching, fetchingError, saving, savingError, saveCar };
     log('returns');
     return (
@@ -90,17 +93,45 @@ export const CarProvider: React.FC<CarProviderProps> = ({ children }) => {
         }
 
         async function fetchCars() {
+            if (!token?.trim()){
+                return;
+            }
             try {
                 log('fetchCars started');
                 dispatch({ type: FETCH_CARS_STARTED });
-                const cars = await getCars();
+                const cars = await getCars(token);
                 log('fetchCars succeeded');
                 if (!canceled) {
                     dispatch({ type: FETCH_CARS_SUCCEEDED, payload: { cars }});
                 }
             } catch (error) {
-                log('fetchCars failed');
-                dispatch({ type: FETCH_CARS_FAILED, payload: { error } });
+                log('fetchMovies failed');
+            //dispatch({ type: FETCH_MOVIES_FAILED, payload: { error }});
+            let realKeys: string[] = [];
+            await Storage.keys().then( (keys)  => {
+                return keys.keys.forEach(function (value) {
+                    if (value !== "token")
+                        realKeys.push(value);
+                })
+            });
+        
+            let values: string[] = [];
+            for (const key1 of realKeys) {
+                await Storage.get({key: key1}).then((value)=>{
+                    // @ts-ignore
+                    values.push(value.value);
+                })
+            }
+ 
+            const cars: CarProps[] = [];
+            for(const value of values){
+                var car = JSON.parse(value);
+                cars.push(car);
+            }
+            log(cars);
+            if (!canceled) {
+                dispatch({ type: FETCH_CARS_SUCCEEDED, payload: { cars }});
+            }
             }
         }
     }
@@ -109,7 +140,7 @@ export const CarProvider: React.FC<CarProviderProps> = ({ children }) => {
         try {
             log('saveCar started');
             dispatch({ type: SAVE_CARS_STARTED });
-            const savedCar = await (car.id ? updateCar(car) : createCar(car));
+            const savedCar = await (car._id ? updateCar(token, car) : createCar(token, car));
             log('saveItem succeeded');
             dispatch({ type: SAVE_CARS_SUCCEEDED, payload: { car: savedCar } });
         } catch (error) {
@@ -121,20 +152,23 @@ export const CarProvider: React.FC<CarProviderProps> = ({ children }) => {
     function wsEffect() {
         let canceled = false;
         log('wsEffect - connecting');
-        const closeWebSocket = newWebSocket(message => {
-            if (canceled) {
-                return;
-            }
-            const { event, payload: { car }} = message;
-            log(`ws message, item ${event}`);
-            if (event === 'created' || event === 'updated') {
-                dispatch({ type: SAVE_CARS_SUCCEEDED, payload: { car } });
-            }
-        });
+        let closeWebSocket: () => void;
+        if (token?.trim()) {
+            closeWebSocket = newWebSocket(token, (message) => {
+                if (canceled) {
+                    return;
+                }
+                const { type /*, payload: car */} = message;
+                log(`ws message, item ${type}`);
+                // if (type === 'created' || type === 'updated') {
+                //     dispatch({ type: SAVE_CARS_SUCCEEDED, payload: { car } });
+                // }
+            });
+        }
         return () => {
             log('wsEffect - disconnecting');
             canceled = true;
-            closeWebSocket();
+            closeWebSocket?.();
         }
     }
 };

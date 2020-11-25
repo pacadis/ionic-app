@@ -31,7 +31,7 @@ const CarEdit: React.FC<CarEditProps> = ({ history, match }) => {
     useEffect(() => {
         log('useEffect');
         const routeId = match.params.id || '';
-        const car = cars?.find(it => it.id === routeId);
+        const car = cars?.find(it => it._id === routeId);
         setCar(car);
         if (car) {
             setMarca(car.marca);

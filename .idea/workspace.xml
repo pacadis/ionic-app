@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,35 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b32c19d-7e0d-4941-ad69-53437223d4dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/.idea/sellCars.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/capacitor.config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/ionic.config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/public/assets/icon/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/public/assets/icon/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/public/assets/shapes.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/components/ExploreContainer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/components/ExploreContainer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/pages/Home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/pages/Home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/serviceWorker.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/setupTests.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/src/theme/variables.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ionic/sellCars/tsconfig.json" beforeDir="false" />
+    <list default="true" id="9b32c19d-7e0d-4941-ad69-53437223d4dc" name="Default Changelist" comment="lab2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/core/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/core/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/todo/Car.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/todo/Car.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/todo/CarApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/todo/CarApi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/todo/CarEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/todo/CarEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/todo/CarList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/todo/CarList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/todo/CarProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/todo/CarProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic_app/src/todo/CarProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ionic_app/src/todo/CarProvider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +45,16 @@
       <list>
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1irz42IUzamaljuvAwiGo7LymRU" />
@@ -73,7 +65,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my-node-server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bogdan" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\Facultate\Anul3\ProgramareMobile\ionic-app\ionic_app\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -105,8 +98,27 @@
       <workItem from="1604160496060" duration="6280000" />
       <workItem from="1604230850450" duration="5825000" />
       <workItem from="1604322517478" duration="1575000" />
-      <workItem from="1604498174086" duration="480000" />
+      <workItem from="1604498174086" duration="1110000" />
+      <workItem from="1604499306457" duration="1317000" />
+      <workItem from="1604502370725" duration="494000" />
+      <workItem from="1604506626895" duration="1596000" />
+      <workItem from="1605290474510" duration="5423000" />
+      <workItem from="1605305915048" duration="5934000" />
+      <workItem from="1605732223931" duration="5429000" />
+      <workItem from="1605882040660" duration="3923000" />
+      <workItem from="1605888546936" duration="205000" />
+      <workItem from="1606061546492" duration="86000" />
+      <workItem from="1606063185705" duration="168000" />
+      <workItem from="1606311488072" duration="971000" />
     </task>
+    <task id="LOCAL-00001" summary="lab2">
+      <created>1604498674671</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604498674671</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,14 +136,19 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lab2" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab2" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1170" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603733711409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1170" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603733711409" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603729115892">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605736065813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.87.1920.1040@0.0.1920.1040" timestamp="1605736065813" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603729115892" />
     <state width="936" height="281" key="GridCell.Tab.0.bottom" timestamp="1604236725283">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -149,17 +166,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="936" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604236725282" />
+    <state x="79" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604498699983">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="79" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604498699983" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603754667789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603754667789" />
-    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1604169172104">
+    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1605301393403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604169172104" />
-    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1603978781852">
+    <state x="667" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605301393403" />
+    <state x="143" y="242" key="run.anything.popup" timestamp="1605312110791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603978781852" />
+    <state x="143" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605312110791" />
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1605307861792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605307861792" />
   </component>
 </project>
